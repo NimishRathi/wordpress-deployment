@@ -37,10 +37,13 @@ Create Secrets for Wordpress Credentials:
 Use kubectl create secret command to create a Secret to store MySQL credentials securely. or use the yaml file mention below
 https://github.com/NimishRathi/wordpress-deployment/blob/main/wordpress/wordpress-secret.yaml
 
-create Wordpress service using the yaml file mention below the services used for the msql deployment should be NodePort for the organization or it can be LoadBalancer type to expose it for the world
+create Wordpress service using the yaml file mention below the services used for the msql deployment should be NodePort for the organization or it can be LoadBalancer type to expose it to the world
 https://github.com/NimishRathi/wordpress-deployment/blob/main/wordpress/wordpress-service.yaml
 
-Be carefull while entering the env varibale values , the MYSQL_DB_HOST will contain the name of the service used for mysql pod
+Be carefull while entering the env variabels  values , the MYSQL_DB_HOST will contain the name of the service used for mysql pod
+
+now open the webserver and use the service ip with the appropriate port
+congratulation you did it!
 
 
 
