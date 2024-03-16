@@ -17,6 +17,46 @@ Deploy MySQL Database:
 Use the provided MySQL Deployment YAML file to deploy MySQL on Kubernetes.
 Mount the created Secret into the MySQL container for access to credentials.
 
+'''
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mysql
+  name: mysql
+  namespace: dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - image: mysql:8.0
+        name: mysql
+        envFrom:
+        - secretRef:
+            name: mysql 
+        ports:
+        - containerPort: 3306
+        resources:
+          requests:
+            cpu: 0.2
+            memory: "100M"
+          limits:
+            cpu: 0.5
+            memory: "500M"
+status: {}
+'''
+
 https://github.com/NimishRathi/wordpress-deployment/blob/main/wordpress/mysql-deployment.yaml
 
 then use the command 
